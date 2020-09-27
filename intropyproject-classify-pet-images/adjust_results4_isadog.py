@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/adjust_results4_isadog.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:                                 
+# PROGRAMMER: Juan C. Melgarejo
+# DATE CREATED: 27/09/2020                                
 # REVISED DATE: 
 # PURPOSE: Create a function adjust_results4_isadog that adjusts the results 
 #          dictionary to indicate whether or not the pet image label is of-a-dog, 
@@ -29,14 +29,7 @@
 #           the item at index 4 of the list. Note we recommend setting the values
 #           at indices 3 & 4 to 1 when the label is of-a-dog and to 0 when the 
 #           label isn't a dog.
-#
-##
-# TODO 4: Define adjust_results4_isadog function below, specifically replace the None
-#       below by the function definition of the adjust_results4_isadog function. 
-#       Notice that this function doesn't return anything because the 
-#       results_dic dictionary that is passed into the function is a mutable 
-#       data type so no return is needed.
-# 
+
 def adjust_results4_isadog(results_dic, dogfile):
     """
     Adjusts the results dictionary to determine if classifier correctly 
@@ -67,4 +60,16 @@ def adjust_results4_isadog(results_dic, dogfile):
     Returns:
            None - results_dic is mutable data type so no return needed.
     """           
-    None
+    is_a_dog_dic = {}
+    with open(dogfile, 'r') as f:
+        dog_data = f.readlines()
+    for dd in dog_data:
+        if dd.strip() not in is_a_dog_dic:
+            is_a_dog_dic[dd.strip()] = 1
+        else:
+            print("Warning: There are duplicates in the dogfile!")
+    
+    
+    for key,value in results_dic.items():
+        value.append(1) if value[0] in is_a_dog_dic else value.append(0)
+        value.append(1) if value[1] in is_a_dog_dic else value.append(0)
