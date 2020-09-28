@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:
+# PROGRAMMER: Juan C. Melgarejo
+# DATE CREATED: 28/09/2020
 # REVISED DATE: 
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
@@ -62,5 +62,25 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    None
+    # We will start with the results:
+    str1= "Results obtained with the model: {} "
+    str2 = "N Images: {}    N Dog Images: {}    N NotDog Images: {}"
+    str3 = "Pct Corr dog: {}    Pct Corr NOTDog: {}    Pct Corr Breed: {}    Pct Matches: {}"
+    
+    print(str1.format(model))
+    print(str2.format(results_stats_dic['n_images'],results_stats_dic['n_dogs_img'],results_stats_dic['n_notdogs_img']))
+    print(str3.format(results_stats_dic['pct_correct_dogs'],results_stats_dic['pct_correct_notdogs'],results_stats_dic['pct_correct_breed'],results_stats_dic['pct_match']))
+    
+    if print_incorrect_dogs:
+        for key,value in results_dic.items():
+            if (value[3] and not value[4]) or (value[4] and not value[3]): 
+                print("Missclassification --> True Identity: {}    Classified as: {}".format(value[0],value[1]))
+            
+   
+    if print_incorrect_breed:
+        for key,value in results_dic.items():
+            if value[3] and value[4] and not value[2]:
+                print("Mistaken breed --> True breed: {}    Classified as: {}".format(value[0],value[1]))
+        
+    
                 
