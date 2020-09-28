@@ -92,3 +92,4 @@ def main():
 # Call to main function to run the program
 if __name__ == "__main__":
     main()
+    print("The model that worked best for the pet_image folder was VGG")
