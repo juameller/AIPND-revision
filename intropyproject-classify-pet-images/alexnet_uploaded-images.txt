@@ -1,0 +1,83 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = alexnet 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 6 key-value pairs.
+Below are 6 of them:
+ 1 key:              rottweiler_01.jpg  label:                 rottweiler
+ 2 key:              rottweiler_02.jpg  label:                 rottweiler
+ 3 key:                  violin_01.jpg  label:                     violin
+ 4 key:                  monkey_01.jpg  label:                     monkey
+ 5 key:     australian_shepherd_02.jpg  label:        australian shepherd
+ 6 key:     australian_shepherd_01.jpg  label:        australian shepherd
+
+     MATCH:
+
+             rottweiler_01.jpg: 
+Real:                 rottweiler   Classifier:                     rottweiler
+
+ NOT A MATCH:
+
+             rottweiler_02.jpg: 
+Real:                 rottweiler   Classifier: book jacket, dust cover, dust jacket, dust wrapper
+
+                 violin_01.jpg: 
+Real:                     violin   Classifier:             cello, violoncello
+
+                 monkey_01.jpg: 
+Real:                     monkey   Classifier: chimpanzee, chimp, pan troglodytes
+
+    australian_shepherd_02.jpg: 
+Real:        australian shepherd   Classifier:                  border collie
+
+    australian_shepherd_01.jpg: 
+Real:        australian shepherd   Classifier:                  border collie
+
+# Total Images 6 # Matches: 1 # NOT Matches: 5
+
+     MATCH:
+
+             rottweiler_01.jpg: 
+Real:                 rottweiler   Classifier:                     rottweiler  
+PetLabelDog: 1  ClassLabelDog: 1
+
+ NOT A MATCH:
+
+             rottweiler_02.jpg: 
+Real:                 rottweiler   Classifier: book jacket, dust cover, dust jacket, dust wrapper  
+PetLabelDog: 1  ClassLabelDog: 0
+
+                 violin_01.jpg: 
+Real:                     violin   Classifier:             cello, violoncello  
+PetLabelDog: 0  ClassLabelDog: 0
+
+                 monkey_01.jpg: 
+Real:                     monkey   Classifier: chimpanzee, chimp, pan troglodytes  
+PetLabelDog: 0  ClassLabelDog: 0
+
+    australian_shepherd_02.jpg: 
+Real:        australian shepherd   Classifier:                  border collie  
+PetLabelDog: 1  ClassLabelDog: 1
+
+    australian_shepherd_01.jpg: 
+Real:        australian shepherd   Classifier:                  border collie  
+PetLabelDog: 1  ClassLabelDog: 1
+
+# Total Images 6 # Matches: 1 # NOT Matches: 5
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  6  N Dog Images:  4  N NotDog Images:  2 
+Pct Corr dog:  75.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  25.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  6  N Dog Images:  4  N NotDog Images:  2 
+Pct Corr dog:  75.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  25.0
+Results obtained with the model: alexnet 
+N Images: 6    N Dog Images: 4    N NotDog Images: 2
+Pct Corr dog: 75.0    Pct Corr NOTDog: 100.0    Pct Corr Breed: 25.0    Pct Matches: 16.666666666666664
+Missclassification --> True Identity: rottweiler    Classified as: book jacket, dust cover, dust jacket, dust wrapper
+Mistaken breed --> True breed: australian shepherd    Classified as: border collie
+Mistaken breed --> True breed: australian shepherd    Classified as: border collie
+
+** Total Elapsed Runtime: 0:0:0
